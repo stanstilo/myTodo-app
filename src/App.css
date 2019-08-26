@@ -1,0 +1,22 @@
+.item {
+  display: flex;
+  justify-content: space-between;
+  width: 30%;
+  margin: 0 auto;
+  padding: 10px;
+}
+
+.item > li {
+  list-style-type: none;
+}
+
+.done {
+  text-decoration: line-through;
+  color: grey;
+}
+
+.delete {
+  background-color: red;
+  color: white;
+  cursor: pointer;
+}
