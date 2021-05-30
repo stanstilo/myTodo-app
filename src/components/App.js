@@ -4,7 +4,7 @@ import "./style.css";
 class App extends React.Component {
   state = {
     todoItems: [], //todo items,initialized with empty array
-    inputValue: "" //input value initialized with epty string also the value of the input tag
+    inputValue: "" //input value initialized with empty string also the value of the input tag
   };
 
   //when the input value changes, run this function which sets the input value state to what is typed in the input
@@ -17,17 +17,16 @@ class App extends React.Component {
   handleClick = () => {
     // add the input value to todo items array
     const { todoItems, inputValue } = this.state;
-
     if (inputValue !== "") {
+
       const newTodoItems = [
         ...todoItems,
         {
-          id: todoItems.length + inputValue, //generate a unique id for each item. which helps when we want to tarhet an item for deletion
+          id: todoItems.length + inputValue, //generate a unique id for each item. which helps when we want to target an item for deletion
           item: inputValue, //the item we ant to add in the todo
           done: false //checks if an item is done
         }
       ];
-
       this.setState({
         todoItems: newTodoItems,
         //clear the input value state
@@ -49,8 +48,8 @@ class App extends React.Component {
     this.setState({
       todoItems: newTodoItems
     });
-    // console.log(newTodoItems);
   };
+
   handleDelete = todoId => {
     const { todoItems } = this.state;
     const newTodoItems = [...todoItems];
@@ -61,8 +60,7 @@ class App extends React.Component {
       }
         this.setState({
           todoItems: newTodoItems
-        });
-      
+        });     
     });
   };
 
