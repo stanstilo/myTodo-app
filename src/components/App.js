@@ -71,26 +71,26 @@ class App extends React.Component {
     const { todoItems, inputValue } = this.state;
 
     return (
-      <div className="add-Div">
-         
-          <h3>TODO APP</h3>
+      <div className="todo-container">             
         {/* instead of using the direct input value, we want a controlled input where the input value state is 
         the value being typed */}
+          <h3 className='todo-heading'>TODO APP</h3>
+        <div className="todo-row">
         <input type="text" value={inputValue} onChange={this.handleChange} />
 
         {/* when we click the button, take the value on the input and push it to the array which will be 
-    rendered as a todo item */}
-        <button className="" onClick={this.handleClick}>
+        rendered as a todo item */}
+        <button className="add-item-btn" onClick={this.handleClick}>
           Add Item
         </button>
-
+        </div>
         <ul>
           {// map the todoitems from the state
           todoItems.length > 0 &&
             todoItems.map(data => {
               const { id, item, done } = data; //take out id and item from the data
               return (
-                <div className="item" key={id}>
+                <div className="todo-item" key={id}>
                   <input
                     type="checkbox"
                     onClick={() => this.handleChecked(id)}
@@ -105,7 +105,8 @@ class App extends React.Component {
                 </div>
               );
             })}
-        </ul>
+          </ul>
+       
       </div>
     );
   }
